@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import CallControls from "./components/CallControls";
+import { useAudioCall } from "./hooks/useAudioCall";
 
 function App() {
+  const { startCall } = useAudioCall();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>WebRTC Audio Call</h1>
+      <CallControls onStart={startCall} />
     </div>
   );
 }
 
 export default App;
+
